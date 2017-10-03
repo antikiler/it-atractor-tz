@@ -1,0 +1,228 @@
+.block-tinymce-textarea{
+    width: 100%;
+    height: 30rem;
+}
+
+.block-tinymce-content {
+    min-height: 2rem;
+    position: relative;
+    padding-top: 2rem;
+}
+
+.block-tinymce-open {
+    position: absolute;
+    right: 0;
+    top: 1rem;
+    font-size: 16px;
+    line-height: 1.5rem;
+    padding: 0 1rem;
+}
+
+.block-tinymce-textarea-parent {
+    padding-top: 2rem;
+}
+.mce-content-body img{
+	max-width:100%;
+	height: inherit;
+	margin: 16px 0;
+	display: block;
+	clear:both;
+}
+.mce-content-body img[style*=left]{
+	margin-right: 16px;
+	margin-top: 0;
+	clear:left;
+}
+.mce-content-body img[style*=right]{
+	margin-left: 16px;
+	margin-top: 0;
+	clear:right;
+}
+
+.mce-content-body > div,
+.mce-content-body p{
+	font-size: 16px;
+    line-height: 24px;
+    margin: 8px 0; 
+}
+
+.mce-content-body {
+	font-family: 'PT serif', sans-serif;
+	color: #212121;
+	font-size: 16px;
+	line-height: 1.5rem;
+	margin: 0 auto !important;
+	padding: 10px !important;
+	overflow-y: auto;
+}
+.mce-content-body h1{
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 2rem;
+    margin-top: 1rem;
+}
+.mce-content-body h2{
+    line-height: 2rem;
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.mce-content-body h3{
+    line-height: 2rem;
+    font-size: 18px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.mce-content-body h4{
+    line-height: 2rem;
+    font-size: 16px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.mce-content-body h5{
+    line-height: 2rem;
+    font-size: 14px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.mce-content-body h6{
+    line-height: 2rem;
+    font-size: 12px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+.mce-content-body em{
+    font-style: italic;
+}
+.mce-content-body ol,
+.mce-content-body ul{
+    list-style: inherit;
+    padding-left: 1.3rem;
+}
+.mce-content-body ol > li{
+	list-style-type: decimal;
+	
+}
+.mce-content-body li{
+	line-height: 1.2rem;
+	margin: 0.5rem 0;
+}
+.mce-content-body b,
+.mce-content-body strong{
+	font-weight: bold;
+}
+
+.block-tinymce-textarea-parent.off {
+    /* display: none; */
+}
+.block-tinymce-html{
+	padding: 0;
+}
+.mce-fullscreen{
+	z-index:1000;
+}
+
+.mce-container{
+	border:none !important;
+}
+
+.mce-content-body hr {
+	border:none;
+	height: 2px;
+	background-color: #ccc;
+	margin: 1rem 0;
+}
+
+.mce-content-body hr.more {
+	display: block;
+	background-color: #fff;
+	border-top: 4px dotted #666;
+	margin: 1rem 0;
+}
+.mce-content-body hr.more:before{
+	content: "Р”Р°Р»РµРµ";
+	display: block;
+	font-size:16px;
+	font-weight: bold;
+	text-align:center;
+	width: 120px;
+	margin: 0 auto;
+	background-color: #fff;
+	color: #DC3643;
+	margin-top: -16px;
+}
+
+.mce-admin-post-edit-fixed + .mce-panel mce-stack-layout-item{
+	margin-top: 16px;
+}
+
+.mce-content-body blockquote {
+    border-left: 2px solid #E14D3E;
+    clear: both;
+    font-style: italic;
+    font-family: Verdana;
+    line-height: 160%;
+    padding: 0 16px;
+    margin: 20px -16px;
+    margin-left: -12px;
+    padding-left: 10px;
+}
+.mce-content-body blockquote:before{
+	display:block;
+	font-size:52px;
+	line-height: 0px;
+	padding-left: 8px;
+}
+.mce-content-body blockquote:after{
+	display:block;
+	font-size:52px;
+	line-height: 0;
+	padding-left: 8px;
+}
+.mce-content-body blockquote p {
+    line-height: 22px;
+    font-style: italic;
+}
+.mce-content-body table{
+	max-width: 100% !important;
+	width: inherit !important;
+}
+
+.mce-content-body iframe{
+	background: #FFF;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,0.5), 0 1px 10px 0 rgba(0,0,0,0.15);
+    margin: auto;
+    padding: 0;
+    // width: calc(100% - 0px) !important;
+    text-align: center;
+    height: *;
+}
+.mce-content-body {
+    overflow-y: visible;
+    max-width: 720px;
+    padding: 0px !important;
+}
+.mce-content-body .previous-news h4{
+	line-height: 22px;
+    font-size: 16px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+.mce-window .mce-container-body {
+    display: block;
+    width: 776px !important;
+}
+.mce-window.mce-in {
+    left: 300px !important;
+}
+.slider-img-box{
+    display: block;
+}
