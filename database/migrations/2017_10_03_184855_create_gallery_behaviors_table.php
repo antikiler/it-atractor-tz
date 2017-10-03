@@ -14,7 +14,6 @@ class CreateGalleryBehaviorsTable extends Migration
     {
         Schema::create('gallery_behaviors', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_behavior');
             $table->string('img',255);
             $table->timestamps();
         });

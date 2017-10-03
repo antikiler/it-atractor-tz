@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 03 2017 г., 22:24
+-- Время создания: Окт 03 2017 г., 23:47
 -- Версия сервера: 5.5.50
 -- Версия PHP: 7.0.8
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `behaviors` (
   `id` int(10) unsigned NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_category` int(11) NOT NULL,
+  `id_user` int(10) unsigned NOT NULL DEFAULT '1',
+  `id_category` int(10) unsigned NOT NULL DEFAULT '0',
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `alias` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 
 CREATE TABLE IF NOT EXISTS `gallery_behaviors` (
   `id` int(10) unsigned NOT NULL,
-  `id_behavior` int(11) NOT NULL,
+  `id_behavior` int(10) unsigned NOT NULL DEFAULT '1',
   `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `gallery_behaviors` (
 
 CREATE TABLE IF NOT EXISTS `gallery_users` (
   `id` int(10) unsigned NOT NULL,
-  `id_user` int(11) NOT NULL,
+  `id_user` int(10) unsigned NOT NULL DEFAULT '1',
   `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -109,7 +109,11 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2017_10_03_184714_create_categories_table', 1),
 ('2017_10_03_184754_create_reviews_table', 1),
 ('2017_10_03_184855_create_gallery_behaviors_table', 1),
-('2017_10_03_185129_create_gallery_users_table', 1);
+('2017_10_03_185129_create_gallery_users_table', 1),
+('2017_10_03_201020_change_behaviors_table', 1),
+('2017_10_03_201357_change_reviews_table', 1),
+('2017_10_03_201528_change_gallery_behaviors_table', 1),
+('2017_10_03_201644_change_gallery_gallery_users_table', 1);
 
 -- --------------------------------------------------------
 
@@ -131,8 +135,8 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 
 CREATE TABLE IF NOT EXISTS `reviews` (
   `id` int(10) unsigned NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_behavior` int(11) NOT NULL,
+  `id_user` int(10) unsigned NOT NULL DEFAULT '1',
+  `id_behavior` int(10) unsigned NOT NULL DEFAULT '1',
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `active` tinyint(4) NOT NULL,
   `thumb` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -171,7 +175,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Индексы таблицы `behaviors`
 --
 ALTER TABLE `behaviors`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `behaviors_id_user_foreign` (`id_user`),
+  ADD KEY `behaviors_id_category_foreign` (`id_category`);
 
 --
 -- Индексы таблицы `categories`
@@ -183,13 +189,15 @@ ALTER TABLE `categories`
 -- Индексы таблицы `gallery_behaviors`
 --
 ALTER TABLE `gallery_behaviors`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `gallery_behaviors_id_behavior_foreign` (`id_behavior`);
 
 --
 -- Индексы таблицы `gallery_users`
 --
 ALTER TABLE `gallery_users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `gallery_users_id_user_foreign` (`id_user`);
 
 --
 -- Индексы таблицы `password_resets`
@@ -202,7 +210,9 @@ ALTER TABLE `password_resets`
 -- Индексы таблицы `reviews`
 --
 ALTER TABLE `reviews`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `reviews_id_user_foreign` (`id_user`),
+  ADD KEY `reviews_id_behavior_foreign` (`id_behavior`);
 
 --
 -- Индексы таблицы `users`
@@ -245,6 +255,36 @@ ALTER TABLE `reviews`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `behaviors`
+--
+ALTER TABLE `behaviors`
+  ADD CONSTRAINT `behaviors_id_category_foreign` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id`),
+  ADD CONSTRAINT `behaviors_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `gallery_behaviors`
+--
+ALTER TABLE `gallery_behaviors`
+  ADD CONSTRAINT `gallery_behaviors_id_behavior_foreign` FOREIGN KEY (`id_behavior`) REFERENCES `behaviors` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `gallery_users`
+--
+ALTER TABLE `gallery_users`
+  ADD CONSTRAINT `gallery_users_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_id_behavior_foreign` FOREIGN KEY (`id_behavior`) REFERENCES `behaviors` (`id`),
+  ADD CONSTRAINT `reviews_id_user_foreign` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

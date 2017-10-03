@@ -14,8 +14,6 @@ class CreateBehaviorsTable extends Migration
     {
         Schema::create('behaviors', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_user');
-            $table->integer('id_category');
             $table->string('title',255);
             $table->string('alias',255);
             $table->text('description');
