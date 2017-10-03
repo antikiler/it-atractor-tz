@@ -1,0 +1,408 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  color: #39393b;
+  background-color: #ededed;
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a {
+  color: #313131;
+  text-decoration: none; }
+
+ul {
+  text-align: left; }
+  ul li {
+    display: inline-block; }
+    ul li a {
+      outline: none;
+      display: block; }
+
+@font-face {
+  font-family: "regular";
+  src: url("../fonts/regular.eot");
+  src: url("../fonts/regular.eot?#iefix") format("embedded-opentype"), url("../fonts/regular.woff") format("woff"), url("../fonts/regular.otf") format("woff"), url("../fonts/regular.ttf") format("truetype"), url("../fonts/regular.svg#regular") format("svg");
+  font-style: normal;
+  font-weight: normal; }
+
+@font-face {
+  font-family: "semibold";
+  src: url("../fonts/semibold.eot");
+  src: url("../fonts/semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/semibold.woff") format("woff"), url("../fonts/semibold.otf") format("woff"), url("../fonts/semibold.ttf") format("truetype"), url("../fonts/semibold.svg#semibold") format("svg");
+  font-style: normal;
+  font-weight: normal; }
+
+@font-face {
+  font-family: "light";
+  src: url("../fonts/light.eot");
+  src: url("../fonts/light.eot?#iefix") format("embedded-opentype"), url("../fonts/light.woff") format("woff"), url("../fonts/light.otf") format("woff"), url("../fonts/light.ttf") format("truetype"), url("../fonts/light.svg#light") format("svg");
+  font-style: normal;
+  font-weight: normal; }
+
+@font-face {
+  font-family: "bold";
+  src: url("../fonts/bold.eot");
+  src: url("../fonts/bold.eot?#iefix") format("embedded-opentype"), url("../fonts/bold.woff") format("woff"), url("../fonts/bold.otf") format("woff"), url("../fonts/bold.ttf") format("truetype"), url("../fonts/bold.svg#bold") format("svg");
+  font-style: normal;
+  font-weight: normal; }
+
+html,
+body {
+  font-size: 14px;
+  font-family: "regular"; }
+
+h1 {
+  font-size: 25px;
+  font-family: "regular"; }
+
+h2 {
+  font-size: 18px;
+  font-family: "regular"; }
+
+h3 {
+  font-size: 20px;
+  font-family: "bold"; }
+
+.btn {
+  border: 1px solid #55a6cd;
+  background-color: #55a6cd;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px; }
+
+.primary {
+  font-size: 14px;
+  padding: 13px; }
+
+.header {
+  background-color: #3783a7;
+  padding: 10px 0; }
+  .header .logo {
+    width: 100%; }
+  .header .search {
+    float: right;
+    overflow: hidden;
+    padding: 5px 0; }
+    .header .search input {
+      border: 1px solid #fff;
+      width: 320px;
+      height: 42px;
+      outline: none;
+      float: left;
+      padding: 0 10px 0 10px; }
+    .header .search .search-btn {
+      border: 4px solid #fff;
+      background-color: #3783a7;
+      cursor: pointer;
+      color: #fff;
+      outline: none;
+      font-size: 16px;
+      padding: 8px 15px; }
+  .header .form-addition {
+    float: right;
+    padding: 5px 0; }
+    .header .form-addition .btn {
+      margin-left: 10px; }
+
+.menu {
+  background-color: #fff;
+  padding: 5px 0;
+  margin-bottom: 40px; }
+  .menu ul li {
+    margin-right: 10px; }
+    .menu ul li a {
+      color: #3783a7;
+      padding: 15px 10px; }
+      .menu ul li a:hover {
+        color: #fff;
+        background-color: #ea5f24; }
+
+.footer {
+  background-color: #3783a7;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0; }
+  .footer i {
+    font-size: 16px;
+    vertical-align: inherit; }
+
+.content {
+  padding-bottom: 20px; }
+  .content .said-bar {
+    background-color: #fff; }
+    .content .said-bar .popular .title {
+      background-color: #3783a7;
+      color: #fff;
+      padding: 20px 15px; }
+    .content .said-bar .popular .categories ul li {
+      border-bottom: 1px solid #c6c6c6;
+      width: 100%; }
+      .content .said-bar .popular .categories ul li .down {
+        background: url(../img/down.jpg) no-repeat center right 15px; }
+      .content .said-bar .popular .categories ul li a {
+        padding: 20px 15px; }
+        .content .said-bar .popular .categories ul li a i {
+          margin-right: 15px; }
+    .content .said-bar .popular .content ul {
+      padding: 0 6px; }
+      .content .said-bar .popular .content ul li {
+        width: 100%; }
+        .content .said-bar .popular .content ul li a {
+          border-bottom: 2px solid #3783a7;
+          display: block;
+          overflow: hidden;
+          padding: 20px 15px 10px; }
+          .content .said-bar .popular .content ul li a img {
+            width: 80px;
+            float: left;
+            margin-right: 10px; }
+          .content .said-bar .popular .content ul li a h5 {
+            font-family: "light";
+            font-size: 14px;
+            margin-bottom: 10px; }
+          .content .said-bar .popular .content ul li a h6 {
+            color: #3783a7;
+            font-size: 10px;
+            font-family: "light"; }
+            .content .said-bar .popular .content ul li a h6 i {
+              font-size: 12px;
+              margin-right: 4px; }
+  .content .bread-crumbs {
+    border-left: 4px solid #3783a7;
+    background-color: #fff;
+    padding: 12px 5px;
+    margin-bottom: 20px; }
+    .content .bread-crumbs ul li {
+      border-right: 2px solid #3783a7; }
+      .content .bread-crumbs ul li:last-child {
+        border-right: 2px solid transparent; }
+      .content .bread-crumbs ul li a {
+        color: #3783a7;
+        padding: 8px; }
+  .content .ticket-content {
+    background-color: #fff;
+    padding: 20px 0; }
+    .content .ticket-content .hotel-card {
+      background-color: #fbfbfb;
+      margin-bottom: 20px; }
+      .content .ticket-content .hotel-card .img {
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        width: 100%;
+        height: 190px;
+        -webkit-background-size: cover;
+                background-size: cover; }
+      .content .ticket-content .hotel-card .description {
+        padding: 20px 10px; }
+        .content .ticket-content .hotel-card .description h3 {
+          font-size: 18px;
+          font-family: "light"; }
+        .content .ticket-content .hotel-card .description .star-rating {
+          height: 20px;
+          margin: 10px 0 15px; }
+      .content .ticket-content .hotel-card .bottom-inform {
+        background-color: #3783a7;
+        font-size: 12px;
+        color: #fff;
+        overflow: hidden;
+        padding-left: 10px; }
+        .content .ticket-content .hotel-card .bottom-inform .date {
+          float: left;
+          padding: 14px 0; }
+          .content .ticket-content .hotel-card .bottom-inform .date i {
+            font-size: 14px;
+            margin-right: 6px; }
+        .content .ticket-content .hotel-card .bottom-inform a {
+          background-color: #297091;
+          display: block;
+          color: #fff;
+          float: right;
+          padding: 15px 30px; }
+
+.afterlife {
+  background-color: #fff;
+  padding: 40px 10px; }
+  .afterlife h3 {
+    margin: 20px 0; }
+  .afterlife h1 {
+    margin-bottom: 5px; }
+  .afterlife .categories {
+    font-size: 14px;
+    margin-bottom: 40px; }
+  .afterlife .img {
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    width: 100%;
+    height: 300px;
+    -webkit-background-size: cover;
+            background-size: cover; }
+  .afterlife h2 {
+    margin: 20px 0; }
+  .afterlife textarea {
+    width: 100%;
+    height: 200px;
+    resize: none;
+    padding: 15px;
+    margin-bottom: 40px; }
+  .afterlife h5 {
+    float: left; }
+  .afterlife select {
+    float: right;
+    margin-right: 40px; }
+  .afterlife .galery-slider .img {
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    width: 100%;
+    height: 120px;
+    -webkit-background-size: cover;
+            background-size: cover;
+    margin: 0 5px; }
+  .afterlife .galery-slider .slick-prev, .afterlife .galery-slider .slick-next {
+    border: 1px solid transparent;
+    background-color: rgba(55, 131, 167, 0.5);
+    outline: none !important;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px; }
+  .afterlife .galery-slider .slick-prev {
+    z-index: 1001;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    top: 0; }
+  .afterlife .galery-slider .slick-next {
+    z-index: 1001;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 0; }
+  .afterlife .stars-reating {
+    padding: 20px 0;
+    margin-top: 20px; }
+    .afterlife .stars-reating .stars-reating-content h4 {
+      padding: 13px 0; }
+    .afterlife .stars-reating .stars-reating-content .reating {
+      border: 1px solid;
+      height: 40px;
+      vertical-align: middle;
+      text-align: right;
+      padding: 2px 0; }
+      .afterlife .stars-reating .stars-reating-content .reating p {
+        padding: 11px 0; }
+  .afterlife .reviews {
+    padding-bottom: 40px; }
+    .afterlife .reviews .img {
+      -webkit-border-radius: 4px;
+              border-radius: 4px;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+      width: 100%;
+      height: 150px;
+      -webkit-background-size: cover;
+              background-size: cover; }
+    .afterlife .reviews .reviews-content {
+      border: 1px solid transparent; }
+      .afterlife .reviews .reviews-content h3 {
+        margin-top: 0;
+        margin-bottom: 10px; }
+      .afterlife .reviews .reviews-content .date {
+        border-bottom: 1px solid #000;
+        padding-bottom: 5px; }
+      .afterlife .reviews .reviews-content .star-reating {
+        border: 1px solid;
+        width: 180px;
+        height: 40px;
+        display: inline-block;
+        padding: 5px;
+        margin: 10px 0; }
+      .afterlife .reviews .reviews-content .block-with-feedback {
+        width: 80%; }
+
+.form-aditional-advertisement {
+  background-color: #fff;
+  padding: 40px 10px; }
+  .form-aditional-advertisement h1 {
+    margin-bottom: 40px; }
+  .form-aditional-advertisement h3 {
+    font-size: 18px;
+    margin-bottom: 80px; }
+  .form-aditional-advertisement input {
+    width: 100%;
+    padding: 15px 10px; }
+  .form-aditional-advertisement select {
+    width: 100%;
+    padding: 15px 10px; }
+  .form-aditional-advertisement textarea {
+    width: 100%;
+    height: 250px;
+    resize: none;
+    padding: 15px;
+    margin-bottom: 40px; }
+  .form-aditional-advertisement .checkBox {
+    width: auto; }
+  .form-aditional-advertisement .primary {
+    display: inline-block;
+    margin-top: 40px; }
+
+.md-overlay {
+  background-color: rgba(0, 0, 0, 0.8); }
+
+.md-modal {
+  width: 40%; }
+  .md-modal .md-content {
+    background-color: #3783a7; }
+    .md-modal .md-content .content-modal {
+      border: 1px solid transparent;
+      text-align: center;
+      padding: 20px; }
+      .md-modal .md-content .content-modal input {
+        border: 1px solid #a8a8a8;
+        width: 400px;
+        color: #000;
+        font-size: 16px;
+        display: inline-block;
+        padding: 15px 20px;
+        margin: 10px 0; }
+        .md-modal .md-content .content-modal input:focus {
+          border: 1px solid #1dff00; }
+      .md-modal .md-content .content-modal button {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        padding: 13px 20px;
+        margin-top: 20px; }
