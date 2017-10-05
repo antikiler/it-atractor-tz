@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 03 2017 г., 23:47
+-- Время создания: Окт 05 2017 г., 21:42
 -- Версия сервера: 5.5.50
 -- Версия PHP: 7.0.8
 
@@ -113,7 +113,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2017_10_03_201020_change_behaviors_table', 1),
 ('2017_10_03_201357_change_reviews_table', 1),
 ('2017_10_03_201528_change_gallery_behaviors_table', 1),
-('2017_10_03_201644_change_gallery_gallery_users_table', 1);
+('2017_10_03_201644_change_gallery_gallery_users_table', 1),
+('2017_10_04_080045_change_users_table', 2);
 
 -- --------------------------------------------------------
 
@@ -164,8 +165,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `count_behavior` int(11) NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `role` tinyint(4) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `password`, `active`, `thumb`, `count_behavior`, `remember_token`, `created_at`, `updated_at`, `role`) VALUES
+(1, 'Лимарев Максим Евгеньевич', '', 'limarevqw@gmail.com', '$2y$10$WypjNuehR4s0lRuPtXnUOeAHVWFHWLxpNOP2bzD1DM/pTuiARVYQ.', 1, '', 0, 'vC4n6SVWWt0kwdrKFSWel1RScO35S0QymEHQIMOmIFUxnyzHkpLSvLpB8VAj', '2017-10-04 01:50:34', '2017-10-05 12:38:33', 1),
+(3, 'Дмитрий', 'Красильников', 'dima@mail.ru', '$2y$10$HT0qT8AK7lntw3Um7vy9du83EmwJ4RedJUHdPhz6W1RiXkKnSwqXa', 1, '', 0, 'mvGZN4dRzzu7qAHrB5RltL4LberGktf3u4ssQdUgYgm99fSII40BAtyCkHy3', '2017-10-05 08:57:54', '2017-10-05 12:06:50', 0),
+(4, 'Диана', 'Фомина', 'diana@mail.ru', '$2y$10$HT0qT8AK7lntw3Um7vy9du83EmwJ4RedJUHdPhz6W1RiXkKnSwqXa', 1, '', 0, '0wDJcHINX3F9EwPbgeEV0WfC4j3VYwCx6qgqjY3EAwn6PszQ2JLia1r7fJSn', '2017-10-05 09:01:22', '2017-10-05 09:01:53', 0),
+(24, 'Лимарев', 'Евгеньевич', 'maks@gmail.com', '$2y$10$HT0qT8AK7lntw3Um7vy9du83EmwJ4RedJUHdPhz6W1RiXkKnSwqXa', 1, '', 0, 'IYaY929fQh1Jaao5MeNwRxyFDFMnn6DUyVh6J0gdvzpRjMo8F2GvOW4taovk', '2017-10-05 11:09:49', '2017-10-05 11:15:38', 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -254,7 +266,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --

@@ -3,7 +3,7 @@
     backface-visibility: initial;
 }
 .header .logo {
-    width: 60%;
+    width: 100%;
 }
 .content .ticket-content .hotel-card {
     margin: 6px;
@@ -46,4 +46,13 @@
 .primary {
     font-size: 14px;
     padding: 9px;
+}
+.login-form{
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.content .bread-crumbs {
+    padding: 0px 0px;
+    margin-bottom: 10px;
 }

@@ -33,7 +33,8 @@
                     </div>
                     <div class="bottom-inform">
                         <div class="date">
-                            <i class="fa fa-calendar" aria-hidden="true"></i> 02-03-2017
+                            <i class="fa fa-camera" aria-hidden="true"></i>4
+                            <i class="fa fa-eye" aria-hidden="true"></i>12
                         </div>
                         <a href="#">Подробнее</a>
                     </div>

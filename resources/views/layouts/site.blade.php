@@ -12,7 +12,7 @@
     <link type="text/css" href="{{URL::asset('/assets/css/grid.css')}}" rel="stylesheet">
     <link type="text/css" href="{{URL::asset('/assets/css/main.css')}}" rel="stylesheet">
     <link type="text/css" href="{{URL::asset('/assets/css/rateit.css')}}" rel="stylesheet">
-    <link type="text/css" href="{{URL::asset('/assets/css/update.css?v=32')}}" rel="stylesheet">
+    <link type="text/css" href="{{URL::asset('/assets/css/update.css?v=36')}}" rel="stylesheet">
     <script type="text/javascript" src="{{URL::asset('/assets/js/libs.min.js')}}"></script>
     <script type="text/javascript">
         $.ajaxSetup({

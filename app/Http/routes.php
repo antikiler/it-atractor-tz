@@ -10,11 +10,22 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/notrole',function (){
+	echo "У вас не достаточно прав для просмотра этой стараницы";
+})->name('notrole');
 
-Route::get('/','MainController@index');
+Route::auth();
+Route::get('/',['uses'=>'MainController@index','as'=>'home']);
 
-Route::group(['prefix'=>'admin'],function (){
 
-	Route::get('/','Admin\MainController@index');
+Route::group(['prefix'=>'admin','middleware' => ['auth','access:admin']],function (){
+	
+	Route::get('/',['uses'=>'Admin\MainController@index','as'=>'adminHome']);
+
+});
+
+Route::group(['prefix'=>'cabinet','middleware' => 'auth'] ,function (){
+	
+	Route::get('/',['uses'=>'Cabinet\MainController@index','as'=>'cabinetHome']);
 
 });
