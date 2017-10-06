@@ -41,7 +41,7 @@ class CategoryController extends AdminController
      */
     public function edit($id)
     {
-        $data['title'] = 'Список категорий';
+        $data['title'] = 'Редактирование категори';
         $data['category'] = Category::find($id);
         return view('admin.category.edit',$data);
     }

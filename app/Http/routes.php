@@ -27,10 +27,16 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','access:admin']],functio
 		Route::post('/active','admin\CategoryController@active');
 		Route::post('/update','admin\CategoryController@update');
 	});
-
 	Route::resource('/category','admin\CategoryController');
-	Route::resource('/behavior','admin\BehaviorController');
+
+	Route::group(['prefix'=>'user'],function (){
+		Route::post('/delete','admin\UserController@delete');
+		Route::post('/active','admin\UserController@active');
+		Route::post('/update','admin\UserController@update');
+	});
 	Route::resource('/user','admin\UserController');
+	
+	Route::resource('/behavior','admin\BehaviorController');
 	Route::resource('/reviews','admin\ReviewsController');
 
 });

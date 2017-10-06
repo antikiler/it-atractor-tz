@@ -15,8 +15,8 @@
 			<div class="form-group">
 			    <div class="block-ckeack-box block-ckeack-box-2">
 					<div class="switcher">
-					    <input class="switcher__input active" type="checkbox" checked id="public">
-					    <label class="switcher__label" for="public">Опубликовать</label>
+					    <input class="switcher__input active" type="checkbox" checked id="active">
+					    <label class="switcher__label" for="active">Опубликовать</label>
 					</div>
 			    </div>
 			    <div style="clear:both"></div>
@@ -35,7 +35,7 @@
 
 	$(document).on('click','.add-category',function() {
 		var title = $('#title').val();
-   		var active = $('#public').prop('checked');
+   		var active = $('#active').prop('checked');
    		if (active) active=1;else active=0;
 
 		$.post('/admin/category',{
