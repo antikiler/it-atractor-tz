@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="csrf-token" content="{{csrf_token()}}" />
 
 <title>Административная панель сайта</title>
 
@@ -33,6 +34,11 @@
     <script src="/assets/admin/js/jquery.dataTables_bootstrap.js"></script>
     <script src="/assets/admin/js/tinymce/tinymce.min.js"></script>
     <script src="/assets/admin/js/admin.js"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+        });
+    </script>
 
 </head>
 <body>
@@ -45,7 +51,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/control">Административная панель сайта</a>
+      <a class="navbar-brand" href="/admin">Административная панель сайта</a>
     </div>
     <ul class="nav navbar-top-links navbar-right">
         <li class="dropdown">
@@ -69,17 +75,17 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/admin/category">
               <i class="fa fa-fw fa-tasks"></i> Категории
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/admin/behavior">
               <i class="fa fa-fw fa-star-half-o"></i> Заведения
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="/admin/user">
               <i class="fa fa-users"></i> Пользователи
             </a>
           </li>
