@@ -10,4 +10,8 @@ class Category extends Model
     protected $fillable = [
         'title','active','alias'
     ];
+    public function behavior()
+    {
+        return $this->hasMany('App\Models\Behavior','id_user','id');
+    }
 }

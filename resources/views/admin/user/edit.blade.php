@@ -44,8 +44,10 @@
 			<div class="form-group">
 			    <div class="block-ckeack-box block-ckeack-box-2">
 					<div class="switcher">
-					    <input class="switcher__input active" type="checkbox" checked id="active">
-					    <label class="switcher__label" for="active">Активен</label>
+					    <input class="switcher__input active" type="checkbox" 
+					    @if($user->active) {{ $active='checked' }}
+						@else {{ $active='' }} @endif  id="public">
+					    <label class="switcher__label" for="public">Опубликовать</label>
 					</div>
 			    </div>
 			    <div style="clear:both"></div>

@@ -28,4 +28,18 @@ class User extends Authenticatable
     {
         return $this->role;
     }
+
+    public function behavior()
+    {
+        return $this->hasMany('App\Models\Behavior','id_user','id');
+    }
+
+    public function gallerys()
+    {
+        return $this->hasMany('App\Models\GalleryUser','id_user','id');
+    }
+    public function reviews()
+    {
+        return $this->hasMany('App\Models\Reviews','id_user','id');
+    }
 }

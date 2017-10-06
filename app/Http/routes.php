@@ -36,6 +36,11 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','access:admin']],functio
 	});
 	Route::resource('/user','admin\UserController');
 	
+	Route::group(['prefix'=>'behavior'],function (){
+		Route::post('/delete','admin\BehaviorController@delete');
+		Route::post('/active','admin\BehaviorController@active');
+		Route::post('/update','admin\BehaviorController@update');
+	});
 	Route::resource('/behavior','admin\BehaviorController');
 	Route::resource('/reviews','admin\ReviewsController');
 

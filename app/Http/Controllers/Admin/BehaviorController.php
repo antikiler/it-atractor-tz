@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Behavior;
+use App\Models\Category;
+use Helper;
+use Auth;
 
 class BehaviorController extends AdminController
 {
@@ -14,9 +18,11 @@ class BehaviorController extends AdminController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Behavior $behavior)
     {
-        return view('admin.behavior.index');
+        $data['title'] = 'Список Заведений';
+        $data['behaviors'] = $behavior->orderBy('id','desc')->paginate(10);
+        return view('admin.behavior.index',$data);
     }
 
     /**
@@ -26,7 +32,9 @@ class BehaviorController extends AdminController
      */
     public function create()
     {
-        return view('admin.behavior.create');
+        $data['title'] = 'Добавление Заведения';
+        $data['categories'] = Category::all();
+        return view('admin.behavior.create',$data);
     }
 
     /**
@@ -37,7 +45,17 @@ class BehaviorController extends AdminController
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        $behavior = new Behavior();
+        $behavior->id_user = Auth::user()->id;
+        $behavior->id_category = $input['id_category'];
+        $behavior->title = $input['title'];
+        $behavior->description = $input['description'];
+        $behavior->alias = Helper::translit($input['title']);
+        $behavior->active = $input['active'];
+        $behavior->save();
+        $id = $behavior->id;
+        echo $id;
     }
 
     /**
@@ -48,7 +66,10 @@ class BehaviorController extends AdminController
      */
     public function edit($id)
     {
-        return view('admin.behavior.edit');
+        $data['title'] = 'Редактирование Заведения';
+        $data['behavior'] = Behavior::find($id);
+        $data['categories'] = Category::all();
+        return view('admin.behavior.edit',$data);
     }
 
     /**
@@ -58,19 +79,31 @@ class BehaviorController extends AdminController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $input = $request->all();
+        $id = intval($input['id']);
+        $behavior = Behavior::find($id);
+        $behavior->id_user = Auth::user()->id;
+        $behavior->id_category = $input['id_category'];
+        $behavior->title = $input['title'];
+        $behavior->description = $input['description'];
+        $behavior->alias = Helper::translit($input['title']);
+        $behavior->active = $input['active'];
+        $behavior->save();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function delete(Request $request,Behavior $behavior)
     {
-        //
+        $id = intval($request->input('id'));
+        $behavior->where('id',$id)->delete();
+    }
+
+    public function active(Request $request,Behavior $behavior)
+    {
+        $id = intval($request->input('id'));
+        $active = intval($request->input('active'));
+        $edit['active'] = $active;
+        $behavior->where('id',$id)->update($edit);
     }
 }
