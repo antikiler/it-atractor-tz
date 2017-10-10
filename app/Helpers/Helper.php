@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Helpers;
+use Illuminate\Support\Facades\Storage;
 use Image;
 
 class Helper{
@@ -20,7 +21,7 @@ class Helper{
 	    $getMime = explode('.', $name);
 	    $mime = end($getMime);
 
-	    $mime = $this->check_mime($mime);
+	    $mime = $this->checkMime($mime);
 	    if ($mime) {
 		    $data = explode(',', $file);
 
@@ -29,14 +30,14 @@ class Helper{
 
 		    $randomName = substr_replace(sha1(microtime(true)), '', 12).'.'.$mime;
 
-	    	if(file_put_contents($uploaddir.$randomName, $decodedData)) {
+	    	if(Storage::put($uploaddir.$randomName, $decodedData)) {
 
 	    		if (isset($config['thumb']['big'])) {
-	    			$this->resize_img($randomName,$dir_name,$config['thumb']['big']['width'],$config['thumb']['big']['height'],'big');
+	    			$this->resizeImg($randomName,$dir_name,$config['thumb']['big']['width'],$config['thumb']['big']['height'],'big');
 	    		}
 
 	    		if (isset($config['thumb']['small'])) {
-	    			$this->resize_img($randomName,$dir_name,$config['thumb']['small']['width'],$config['thumb']['small']['height'],'small');
+	    			$this->resizeImg($randomName,$dir_name,$config['thumb']['small']['width'],$config['thumb']['small']['height'],'small');
 	    		}
 	      		return $randomName;
 
@@ -71,6 +72,25 @@ class Helper{
 		$thumb_img->save($destinationPath.'/'.$randomName,80);
 		return TRUE;
 	}
+	public static function delImg($id,$dataImg,$folder)
+    {
+        if ($dataImg) {
+            $path = 'uploads/'.$folder.'/';
+            $id = [];
+            for ($i=0; $i < count($dataImg); $i++) { 
+
+               $img[] = $path.$dataImg[$i]['img'];
+               $thumb_smail[] = $path.'thumb/small/'.$dataImg[$i]['img'];
+               $thumb_big[] = $path.'thumb/big/'.$dataImg[$i]['img'];
+            }
+            Storage::delete($img);
+            Storage::delete($thumb_smail);
+            Storage::delete($thumb_big);
+            return TRUE;
+        }else{
+        	return FALSE;
+        }
+    }
 	public static function translit($str)
 	{
 	  $str = trim($str);

@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Behavior;
 use App\Models\Category;
+use App\Models\GalleryBehavior;
 use Helper;
 use Auth;
 
@@ -93,10 +94,17 @@ class BehaviorController extends AdminController
         $behavior->save();
     }
 
-    public function delete(Request $request,Behavior $behavior)
+    public function delete(Request $request, Helper $helper)
     {
         $id = intval($request->input('id'));
-        $behavior->where('id',$id)->delete();
+        $gallerys = GalleryBehavior::where('id_behavior',$id)->get()->toArray();
+        
+        if ($helper->delImg($id,$gallerys,'behavior')) {
+           GalleryBehavior::where('id_behavior',$id)->delete();
+        }
+        
+        Behavior::destroy($id);
+        echo 1;
     }
 
     public function active(Request $request,Behavior $behavior)
@@ -105,5 +113,24 @@ class BehaviorController extends AdminController
         $active = intval($request->input('active'));
         $edit['active'] = $active;
         $behavior->where('id',$id)->update($edit);
+    }
+    public function addImg(Request $request, Helper $helper)
+    {
+        if ($request->ajax()) {
+            $img = $request->all();
+
+            $imgName = $helper->uploadItemImg('behavior',$img['value'],$img['name']);
+
+            if ($img['id_pic'] == $img['main']) $main=1; else $main = 0;    
+
+            $gallery = new GalleryBehavior();
+            $gallery->id_behavior = $img['last_id'];
+            $gallery->img = $imgName;
+            $gallery->main = $main;
+            $gallery->save();
+
+            echo 1;
+        }
+        
     }
 }

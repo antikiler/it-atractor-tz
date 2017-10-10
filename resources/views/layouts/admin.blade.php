@@ -8,15 +8,15 @@
 <meta name="csrf-token" content="{{csrf_token()}}" />
 
 <title>Административная панель сайта</title>
-
-    <link media="all" type="text/css" rel="stylesheet" href="/assets/admin/css/bootstrap.min.css" >
-    <link media="all" type="text/css" rel="stylesheet" href="/assets/admin/css/sb-admin-2.css" >
-    <link media="all" type="text/css" rel="stylesheet" href="/assets/admin/css/font-awesome.min.css" >
-    <link media="all" type="text/css" rel="stylesheet" href="/assets/admin/css/dataTables.bootstrap.css" >
-    <link media="all" type="text/css" rel="stylesheet" href="/assets/admin/css/switcher-block.css" >
-    <link media="all" type="text/css" rel="stylesheet" href="/assets/admin/css/codepen.css" >
-    <link type="text/css" rel="stylesheet" href="/assets/admin/css/admin.css">
-    <link type="text/css" rel="stylesheet" href="/assets/css/tinymce.css?var=21212">
+<link type="text/css" rel="stylesheet" href="/assets/css/file-upload-multi.css">
+<link media="all" type="text/css" rel="stylesheet" href="/assets/admin/css/bootstrap.min.css" >
+<link media="all" type="text/css" rel="stylesheet" href="/assets/admin/css/sb-admin-2.css" >
+<link media="all" type="text/css" rel="stylesheet" href="/assets/admin/css/font-awesome.min.css" >
+<link media="all" type="text/css" rel="stylesheet" href="/assets/admin/css/dataTables.bootstrap.css" >
+<link media="all" type="text/css" rel="stylesheet" href="/assets/admin/css/switcher-block.css" >
+<link media="all" type="text/css" rel="stylesheet" href="/assets/admin/css/codepen.css" >
+<link type="text/css" rel="stylesheet" href="/assets/admin/css/admin.css?v=22">
+<link type="text/css" rel="stylesheet" href="/assets/css/tinymce.css?var=21212">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -24,21 +24,23 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
 
-    <script src="/assets/admin/js/jquery.min.js"></script>
-    <script src="/assets/admin/js/autoresize.jquery.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/admin/js/sb-admin-2.js"></script>
-    <script src="/assets/admin/js/metisMenu.min.js"></script>
-    <script src="/assets/admin/js/admin-default.js"></script>
-    <script src="/assets/admin/js/jquery.dataTables.min.js"></script>
-    <script src="/assets/admin/js/jquery.dataTables_bootstrap.js"></script>
-    <script src="/assets/admin/js/tinymce/tinymce.min.js"></script>
-    <script src="/assets/admin/js/admin.js"></script>
-    <script type="text/javascript">
-        $.ajaxSetup({
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
-        });
-    </script>
+<script src="/assets/admin/js/jquery.min.js?v=15"></script>
+<script src="/assets/admin/js/jquery-migrate-3.0.1.js?v=15"></script>
+<script src="/assets/admin/js/autoresize.jquery.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/admin/js/sb-admin-2.js"></script>
+<script src="/assets/admin/js/metisMenu.min.js"></script>
+<script src="/assets/admin/js/admin-default.js"></script>
+<script src="/assets/admin/js/jquery.dataTables.min.js"></script>
+<script src="/assets/admin/js/jquery.dataTables_bootstrap.js"></script>
+<script src="/assets/admin/js/tinymce/tinymce.min.js"></script>
+<script src="/assets/admin/js/admin.js"></script>
+<script src="/assets/js/function.js?v=15"></script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+    });
+</script>
 
 </head>
 <body>

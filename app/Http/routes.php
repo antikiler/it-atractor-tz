@@ -40,6 +40,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','access:admin']],functio
 		Route::post('/delete','admin\BehaviorController@delete');
 		Route::post('/active','admin\BehaviorController@active');
 		Route::post('/update','admin\BehaviorController@update');
+		Route::post('/add_img','admin\BehaviorController@addImg');
 	});
 	Route::resource('/behavior','admin\BehaviorController');
 	Route::resource('/reviews','admin\ReviewsController');

@@ -1,12 +1,10 @@
-$(document).ready(function (){
-
 // Массив для всех изображений
 
 // В dataTransfer помещаются изображения которые перетащили в область div
-$.event.props.push('dataTransfer');
+jQuery.event.props.push('dataTransfer');
 
 // Максимальное количество загружаемых изображений за одни раз
-var maxFiles = 30;
+var maxFiles = 15;
 
 var main_block_name = '.content-galler-1 ';
 
@@ -140,7 +138,7 @@ function addImage(ind) {
 
 		if($(main_block_name+'#dropped-files > .image').length <= maxFiles) { 
 			$(main_block_name+'#dropped-files').append('<div id="img-'+i+'"  class="image" style="background: url('+dataArray[i].value+'); background-size: cover;" iid="'+i+'">'+
-			                            '<a href="javascript:void(0);" id="main-'+dataArray[i].id_pic+'" iid="'+dataArray[i].id_pic+'" class="main-button">Сделать Главной</a>'+
+			                            '<a href="javascript:void(0);" id="main-'+dataArray[i].id_pic+'" iid="'+dataArray[i].id_pic+'" class="main-button">Сделать главной</a>'+
 			                            // '<a id="short-'+i+'"  class="short-tags-button"><input type="text" class="short-tags" iid="'+dataArray[i].id_pic+'" placeholder="введите тег" value="'+dataArray[i].short_tag+'"></a>'+
 			                            '<a style="cursor: pointer;" id="drop-'+i+'" iid="'+dataArray[i].id_pic+'" old="'+dataArray[i].old+'" class="drop-button">Удалить изображение</a>'+
 			                            '</div>'); 
@@ -160,7 +158,7 @@ function addImage(ind) {
 
 // Метод Сделать главной
 $(document).on('click',main_block_name+'.main-button',function (){
-  $(main_block_name+'.main-button').removeClass('main-button-active').html('Сделать Главной');
+  $(main_block_name+'.main-button').removeClass('main-button-active').html('Сделать главной');
 
   $(this).addClass('main-button-active').html('Главная');
   $('.main_img').val($(this).attr('iid'));
@@ -261,4 +259,3 @@ $(main_block_name+'#drop-files').on('drop', function() {
 function randomNumber(min, max) {
   return '558878778878745'+Math.floor(Math.random() * (max - min + 1)) + min;
 }
-});

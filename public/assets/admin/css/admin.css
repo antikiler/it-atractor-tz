@@ -111,7 +111,7 @@ ol, ul {
     padding-left: 0px;
   }
   .modal-content {
-      width: 550px;
+      width: auto;
   }
   .modal-dialog{
     width: 550px !important;
@@ -126,6 +126,9 @@ ol, ul {
   padding: 14px;
   background: #f8f8f8;
 }
+.content-img-upload{
+  position: relative;
+}
 .content-img-upload .table-striped a:hover{
  text-decoration: underline;
 }
@@ -134,7 +137,7 @@ ol, ul {
     margin: 0 auto;
   
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 70px;
     margin-top: 20px;
     margin-bottom: 20px;
     text-align: center;
@@ -264,17 +267,20 @@ ol, ul {
  .content-img-upload #loading {
     display: none;
     width: 100%;
-    position: relative;
-    margin: 20px;
+    position: absolute;
+    bottom: 50px;
+    margin: 0;
+    padding: 0 11px;
+    height: 20px;
 }
 
  .content-img-upload #loading-bar {
-    width: 404px;
-    height: 40px;
     background: #fff;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
     border-radius: 5px;
     padding: 2px;
+    width: 100%;
+    height: 20px;
 }
 
  .content-img-upload .loading-color {
@@ -286,16 +292,17 @@ ol, ul {
     -o-transition: all 0.1s ease-in;
     transition: all 0.1s ease-in;
     border-radius: inherit;
-    background-color: #4edbf1;
+    background-color: #5cb85c;
 }
 
  .content-img-upload #loading-content {
     position: relative;
-    top: 15px;
-    font-size: 1.2em;
+    top: 14px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
-    width: 405px;
+    width: 100%;
+    margin: 0 auto;
 }
 
  .content-img-upload #file-name-holder {
@@ -365,10 +372,11 @@ textarea.form-control {
     height: 35px;
 }
 .thumb-block{
-  height: 200px;
+  height: 177px;
   width: 100%;
   background: url(/assets/admin/img/nofoto.jpg) center no-repeat;
   display: block;
+  background-size: 64%;
 }
 #uploaded-holder {
     padding-left: 10px;
@@ -378,8 +386,8 @@ textarea.form-control {
     margin: 0px 5px 8px 0px;
 }
 .content-img-upload #dropped-files .image {
-  width: 300px;
-  height: 250px;
+  width: 218px;
+  height: 170px;
 }
 #drop-files {
     background: rgb(243, 243, 243);
@@ -413,6 +421,7 @@ textarea.form-control {
 }
 .switcher {
     padding: 2px;
+    padding-bottom: 8px !important;
 }
 .tinymce-edditor-fixed-top{
     position: fixed;

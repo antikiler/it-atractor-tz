@@ -72,5 +72,6 @@
 	$("#id_category [value='{{ $behavior->id_category }}']").attr("selected", "selected");
 	$('#title').autoResize();
 	$('#description').autoResize();
+
 </script>
 @endsection
